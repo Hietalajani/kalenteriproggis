@@ -41,11 +41,17 @@ months.forEach((item) => {
   });
 });
 
-document.querySelector('button').addEventListener('click', (e) => {
+backbutton.addEventListener('click', (e) => {
   calendarcontainer.style.gridTemplate = '1fr 1fr / 1fr 1fr';
-  console.log('helloder');
+  calendarcontainer.style.gap = '1rem';
+  backbutton.style.opacity = '0';
+  e.currentTarget.parentNode.classList.remove('active');
+
+  // console.log('helloder');
 
   months.forEach((monthdiv) => {
     monthdiv.style.opacity = '100%';
   });
+
+  e.stopPropagation();
 });
